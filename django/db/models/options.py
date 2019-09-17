@@ -204,7 +204,7 @@ class Options:
 
         # If the db_table wasn't provided, use the app_label + model_name.
         if not self.db_table:
-            self.db_table = "%s_%s" % (self.app_label, self.model_name)
+            self.db_table = "%s_%s" % (self.app_label.lower(), self.model_name)
             self.db_table = truncate_name(self.db_table, connection.ops.max_name_length())
 
     def _format_names_with_class(self, cls, objs):
